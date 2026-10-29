@@ -193,7 +193,7 @@ D.forEach((x, i) => {
   x.overHouse = x.ei.filter((v, h) => v != null && x.vh[h] != null && v > x.vh[h] + 0.05).length;
 });
 
-let sel = D.length - 1, mode = 'net', showSol = false;
+let sel = Math.max(0, D.findIndex(x => x.d === '2026-06-02')), mode = 'net', showSol = false;
 
 function series(x) {
   const c5 = x.c5.map(w => w == null ? null : w / 1000);
@@ -410,5 +410,5 @@ $('copy').onclick = () => { const url = location.href.split('#')[0] + '#dia-' + 
   navigator.clipboard.writeText(url).then(() => { b.textContent = 'Enlace copiado'; setTimeout(() => b.textContent = 'Copiar enlace a este día', 1600); }, () => { b.textContent = '#dia-' + D[sel].d; }); };
 addEventListener('hashchange', fromHash);
 let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { drawChart(); drawTotals(); drawYear(); }, 120); });
-if (!fromHash()) go(D.findIndex(x => x.d === '2026-09-25'), false);
+if (!fromHash()) go(D.findIndex(x => x.d === '2026-06-02'));
 </script>
